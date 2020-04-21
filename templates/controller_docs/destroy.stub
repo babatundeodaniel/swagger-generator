@@ -7,18 +7,20 @@
      *      summary="Remove the specified $MODEL_NAME$ from storage",
      *      tags={"$MODEL_NAME$"},
      *      description="Delete $MODEL_NAME$",
-     *      produces={"application/json"},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of $MODEL_NAME$",
-     *          type="integer",
      *          required=true,
-     *          in="path"
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer",
+     *              format="int64"
+     *          )
      *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
-     *          @OA\Schema(
+     *          @OA\JsonResponse(
      *              type="object",
      *              @OA\Property(
      *                  property="success",
