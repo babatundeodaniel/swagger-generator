@@ -7,18 +7,20 @@
      *      summary="Display the specified $MODEL_NAME$",
      *      tags={"$MODEL_NAME$"},
      *      description="Get $MODEL_NAME$",
-     *      produces={"application/json"},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of $MODEL_NAME$",
-     *          type="integer",
      *          required=true,
-     *          in="path"
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer",
+     *              format="int64"
+     *          )
      *      ),
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
-     *          @OA\Schema(
+     *          @OA\JsonContent(
      *              type="object",
      *              @OA\Property(
      *                  property="success",
@@ -26,7 +28,7 @@
      *              ),
      *              @OA\Property(
      *                  property="data",
-     *                  ref="#/definitions/$MODEL_NAME$"
+     *                  ref="#/components/schemas/$MODEL_NAME$"
      *              ),
      *              @OA\Property(
      *                  property="message",

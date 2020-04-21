@@ -8,20 +8,20 @@
      *      summary="Update the specified $MODEL_NAME$ in storage",
      *      tags={"$MODEL_NAME$"},
      *      description="Update $MODEL_NAME$",
-     *      produces={"application/json"},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of $MODEL_NAME$",
-     *          type="integer",
      *          required=true,
-     *          in="path"
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer",
+     *              format="int64"
+     *          )
      *      ),
-     *      @OA\Parameter(
-     *          name="body",
-     *          in="body",
+     *      @OA\RequestBody(
      *          description="$MODEL_NAME$ that should be updated",
      *          required=false,
-     *          @OA\Schema(ref="#/definitions/$MODEL_NAME$")
+     *          @OA\JsonContent(ref="#/components/schemas/$MODEL_NAME$")
      *      ),
      *      @OA\Response(
      *          response=200,
@@ -34,7 +34,7 @@
      *              ),
      *              @OA\Property(
      *                  property="data",
-     *                  ref="#/definitions/$MODEL_NAME$"
+     *                  ref="#/components/schemas/$MODEL_NAME$"
      *              ),
      *              @OA\Property(
      *                  property="message",
