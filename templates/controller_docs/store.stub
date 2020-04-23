@@ -10,7 +10,7 @@
      *      @OA\RequestBody(
      *          description="$MODEL_NAME$ that should be stored",
      *          required=false,
-     *          @OA\Schema(ref="#/components/schemas/$MODEL_NAME$")
+     *          @OA\JsonContent(ref="#/components/schemas/$MODEL_NAME$")
      *      ),
      *      @OA\Response(
      *          response=200,
